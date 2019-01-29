@@ -3,6 +3,8 @@ facebook-online-friend-tracker
 
 Track the number of online friends you have on Facebook at any given time! Check out my `results and conclusions`_ after running this script for two weeks!
 
+Extended by allowing for longer than 720 hours of recording.
+
 Prerequisites
 -------------
 
@@ -18,6 +20,8 @@ How to Setup
 
 1. Have `Python`_ installed.
 2. Install the script and all dependencies via `pip`_ by simply running: ``pip install facebook-online-friend-tracker``
+2. Clone this repo
+2. `which facebook-online-friend-tracker`, then replace main.py in the subdirectory with main.py in this repo.
 3. The command to run the script is: ``facebook-online-friend-tracker``
 4. After some time, you will be able to analyze the trend in the collected data. (I waited 2 full weeks before analyzing the data and finding the `best time to post on Facebook`_.)
 
