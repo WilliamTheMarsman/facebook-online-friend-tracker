@@ -20,10 +20,14 @@ How to Setup
 
 1. Have `Python`_ installed.
 2. Install the script and all dependencies via `pip`_ by simply running: ``pip install facebook-online-friend-tracker``
+
 3. Clone this repo
-3. `which facebook-online-friend-tracker`, then replace main.py in the subdirectory with main.py in this repo.
-4. The command to run the script is: ``facebook-online-friend-tracker``
-5. After some time, you will be able to analyze the trend in the collected data. (I waited 2 full weeks before analyzing the data and finding the `best time to post on Facebook`_.)
+
+4. `which facebook-online-friend-tracker`, then replace main.py in the subdirectory with main.py in this repo.
+
+5. The command to run the script is: ``facebook-online-friend-tracker``
+
+6. After some time, you will be able to analyze the trend in the collected data. (I waited 2 full weeks before analyzing the data and finding the `best time to post on Facebook`_.)
 
 .. _results and conclusions: https://blog.optimizely.com/2015/07/08/how-to-find-the-best-time-to-post-on-facebook/
 .. _CSV: https://en.wikipedia.org/wiki/Comma-separated_values
