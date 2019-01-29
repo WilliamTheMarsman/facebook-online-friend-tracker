@@ -30,20 +30,20 @@ def main():
 
   # Prompt user for script interval time and convert to seconds.
   while True:
-    interval_time = int(input('How often would you like to check how many friends are online? Enter a number between 5 and 30 minutes: '), 10)
-    if interval_time >= 5 and interval_time <= 30:
+    interval_time = int(input('How often would you like to check how many friends are online? Enter a number between 2 and 30 minutes: '), 10)
+    if interval_time >= 2 and interval_time <= 30:
       break
     else:
-      print('The number you entered was not between 5 and 30.')
+      print('The number you entered was not between 2 and 30.')
   interval_time = interval_time * 60
 
   # Prompt user for total run time and convert to seconds.
   while True:
-    total_time = int(input('How long would you like to run this tool for? Enter a number between 1 and 720 hours: '), 10)
-    if total_time >= 1 and total_time <= 720:
+    total_time = int(input('How long would you like to run this tool for? Enter a number between 1 and 72000 hours: '), 10)
+    if total_time >= 1 and total_time <= 720000:
       break
     else:
-      print('The number you entered was not between 1 and 720.')
+      print('The number you entered was not between 1 and 720000.')
   total_time = total_time * 3600
 
   # Prompt for the CSV file path and verify that the CSV file exists before scraping.
