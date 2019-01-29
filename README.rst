@@ -23,7 +23,7 @@ How to Setup
 
 3. Clone this repo
 
-4. `which facebook-online-friend-tracker`, then replace main.py in the subdirectory with main.py in this repo.
+4. ``which facebook-online-friend-tracker``, then replace main.py in the subdirectory with main.py in this repo.
 
 5. The command to run the script is: ``facebook-online-friend-tracker``
 
