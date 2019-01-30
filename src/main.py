@@ -25,12 +25,12 @@ except NameError:
 def main():
   # Prompt user for Facebook credentials.
   print('\nFacebook Online Friend Tracker starting...')
-  facebook_username = input('Facebook username: ')
+  facebook_username = 'william.marsman@gmail.com'
   facebook_password = getpass.getpass('Facebook password: ')
 
   # Prompt user for script interval time and convert to seconds.
   while True:
-    interval_time = int(input('How often would you like to check how many friends are online? Enter a number between 2 and 30 minutes: '), 10)
+    interval_time = 3;
     if interval_time >= 2 and interval_time <= 30:
       break
     else:
@@ -38,12 +38,7 @@ def main():
   interval_time = interval_time * 60
 
   # Prompt user for total run time and convert to seconds.
-  while True:
-    total_time = int(input('How long would you like to run this tool for? Enter a number between 1 and 72000 hours: '), 10)
-    if total_time >= 1 and total_time <= 720000:
-      break
-    else:
-      print('The number you entered was not between 1 and 720000.')
+  total_time = 720000
   total_time = total_time * 3600
 
   # Prompt for the CSV file path and verify that the CSV file exists before scraping.
@@ -53,7 +48,6 @@ def main():
     print(path_to_csv_file + ' has been found.')
   else:
     print('[WARNING] ' + path_to_csv_file + ' does not exist. Creating a new CSV file now...')
-    path_to_csv_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'facebook_online_friend_tracker_data.csv')
     with open(path_to_csv_file, 'w') as f:
       writer = csv.writer(f, lineterminator='\n')
       writer.writerow(['Timestamp', 'Number of Online Friends'])
@@ -65,11 +59,13 @@ def main():
 
   # Initialize Chrome WebDriver.
   print('\nInitializing Chrome WebDriver...')
-  driver = webdriver.Chrome()
+  chrome_options = webdriver.ChromeOptions();
+  chrome_options.add_argument('--headless');
+  driver = webdriver.Chrome(chrome_options=chrome_options)
 
   # Change default timeout and window size.
   driver.implicitly_wait(120)
-  driver.set_window_size(700, 500)
+  driver.set_window_size(1300, 8000)
 
   # Go to www.facebook.com and log in using the provided credentials.
   print('Logging into Facebook...')
@@ -86,7 +82,7 @@ def main():
     time.sleep(180)
 
     # Scrape the number of online friends.
-    onlineFriendsCount = driver.find_element_by_xpath('//*[@id="fbDockChatBuddylistNub"]/a/span[2]/span').text.strip('()')
+    onlineFriendsCount = driver.find_elements_by_xpath('//*[@id="fbDockChatBuddylistNub"]/a/span[2]/span').text.strip('()')
     if onlineFriendsCount:
       onlineFriendsCount = int(onlineFriendsCount)
     else:
