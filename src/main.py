@@ -25,8 +25,8 @@ except NameError:
 def main():
   # Prompt user for Facebook credentials.
   print('\nFacebook Online Friend Tracker starting...')
-  facebook_username = 'william.marsman@gmail.com'
-  facebook_password = getpass.getpass('Facebook password: ')
+  facebook_username = 'username'
+  facebook_password = 'password-or-getpass'
 
   # Prompt user for script interval time and convert to seconds.
   interval_time = 3;
@@ -37,7 +37,7 @@ def main():
   total_time = total_time * 3600
 
   # Prompt for the CSV file path and verify that the CSV file exists before scraping.
-  path_to_csv_file = input('Path to the CSV file: ')
+  path_to_csv_file = 'facebook-friends-online-tracker.csv'
   print('Verifying that the CSV file exists...')
   if os.path.exists(path_to_csv_file):
     print(path_to_csv_file + ' has been found.')
@@ -81,15 +81,16 @@ def main():
 
     friends_active_now = driver.find_elements_by_xpath('//div[div[div[span[@aria-label="Active Now"]]]]/div[3]')
     today = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
-    friends_timestamps = [[iteration, today, 'friends_found_' + str(friends_active_now.__len__())]]
+    friends_timestamps = [[str(iteration), today, 'friends_found_' + str(friends_active_now.__len__())]]
     if friends_active_now.__len__():
-      friends_timestamps = friends_timestamps + map(lambda friend: [iteration, today, friend.text], friends_active_now)
+      friends_timestamps = friends_timestamps + map(lambda friend: [str(iteration), today, friend.text], friends_active_now)
 
     f = open(path_to_csv_file, 'a')
     writer = csv.writer(f, lineterminator='\n')
-    map(lambda friend_spotting: writer.writerow(friend_spotting), friends_timestamps)
-    for fri in [str(friend_spotting) for friend_spotting in friends_timestamps]:
-      print(fri)
+    for frien in friends_timestamps:
+      print(frien)
+      writer.writerow(frien)
+    f.close()
 
     print('\nAdded all detected friends to the spreadsheet.')
 
