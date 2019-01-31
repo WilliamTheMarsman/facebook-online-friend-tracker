@@ -3,8 +3,8 @@ facebook-online-friend-tracker
 
 Track the number of online friends you have on Facebook at any given time! Check out my `results and conclusions`_ after running this script for two weeks!
 
-Extended recording duration from 2 weeks to 100 years. now records who was online when 
-each sample was taken.
+Extended recording duration from 2 weeks to 100 years. Now records who was online when 
+each sample is taken.
 
 Prerequisites
 -------------
